@@ -19,7 +19,6 @@ export default function Navbar() {
 
   useEffect(() => {
     // Ensure the code runs only on the client side
-    if (typeof window === "undefined") return;
 
     // Select the "work" section by its ID
     const workSection = document.getElementById("work");
