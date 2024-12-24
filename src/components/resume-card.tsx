@@ -28,7 +28,7 @@ export const ResumeCard = ({
   description,
 }: ResumeCardProps) => {
   return (
-    <Card className="flex bg-white border border-gray-300 rounded-lg p-4 opacity-100 transform transition-transform duration-300 ease-out hover:translate-y-[-0.25rem] hover:shadow-lg dark:bg-black dark:border-black">
+    <Card className="flex bg-white border border-gray-300 rounded-lg p-4 opacity-100 transform transition-transform duration-300 ease-out hover:translate-y-[-0.25rem] hover:shadow-lg dark:bg-black dark:border-grey-700">
       {" "}
       <div className="flex-none">
         <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
