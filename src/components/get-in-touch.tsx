@@ -50,8 +50,8 @@ export const GetInTouch = () => {
         Get in Touch
       </h2>
       <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-        Want to chat? Just shoot me a dm and I&apos;ll respond whenever I can. I
-        will ignore all soliciting.
+        Want to chat? Just shoot me a message and I will get back to you as soon
+        as possible.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

@@ -24,43 +24,44 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   const slugs = [
+    "python",
+    "tensorflow",
+    "keras",
+    "pytorch",
     "typescript",
     "javascript",
     "dart",
     "java",
     "react",
-    "flutter",
-    "android",
     "html5",
     "css3",
     "nodedotjs",
     "express",
     "nextdotjs",
-    "prisma",
     "amazonaws",
     "postgresql",
     "firebase",
-    "nginx",
     "vercel",
     "testinglibrary",
     "jest",
-    "cypress",
     "docker",
     "git",
     "jira",
     "github",
     "gitlab",
     "visualstudiocode",
-    "androidstudio",
-    "sonarqube",
     "figma",
+    "playwright",
   ];
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero" className="relative">
         <div className="mx-auto min-h-[85vh] flex items-center justify-center space-y-8">
           {/* Hero content stays centered */}
-          <Ripple mainCircleSize={500} />
+          <Ripple
+            mainCircleSize={500}
+            // className="min-w-[100vw] min-h-[100vh]"
+          />
           <div className="flex-col flex items-center space-y-8">
             <BlurFade
               delay={BLUR_FADE_DELAY}
@@ -223,20 +224,6 @@ export default function Page() {
           ))}
         </div>
       </section>
-      {/* <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section> */}
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
@@ -287,7 +274,7 @@ export default function Page() {
             <div className="max-w-[300px] flex flex-col items-center justify-center mx-auto">
               <IconCloud iconSlugs={slugs} />
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-8">
               {DATA.skills.map((skill, id) => (
                 <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
                   <Badge
