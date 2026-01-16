@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { skillCategories } from '../../data/content/profile';
 
 const SkillsSection: React.FC = () => {
   const [showSkills, setShowSkills] = useState(false);
@@ -17,30 +18,11 @@ const SkillsSection: React.FC = () => {
     return 'Novice';
   };
 
-  // Parse skills data
-  const skillCategories = [
-    {
-      title: 'LANGUAGES',
-      skills: [
-        { name: 'Python', level: 98, color: 'neon-green' },
-        { name: 'TypeScript', level: 90, color: 'neon-cyan' },
-        { name: 'Java', level: 80, color: 'neon-pink' },
-        { name: 'C++', level: 70, color: 'neon-green' },
-      ]
-    },
-    {
-      title: 'FRAMEWORKS',
-      skills: [
-        { name: 'React', level: 90, color: 'neon-cyan' },
-        { name: 'PyTorch', level: 95, color: 'neon-pink' },
-        { name: 'Node.js', level: 85, color: 'neon-green' },
-      ]
-    },
-    {
-      title: 'TOOLS',
-      tools: ['Docker', 'Kubernetes', 'Git', 'AWS', 'GCP']
-    }
-  ];
+  const getSkillColor = (level: number) => {
+    if (level >= 90) return 'neon-cyan';
+    if (level >= 80) return 'neon-green';
+    return 'neon-pink';
+  };
 
   const renderBar = (level: number, color: string) => {
     const totalBlocks = 20;
@@ -93,23 +75,27 @@ const SkillsSection: React.FC = () => {
             
             {category.skills ? (
               <div className="space-y-6">
-                {category.skills.map((skill, skillIdx) => (
-                  <div key={skillIdx} className="font-mono text-sm group">
-                    <div className="flex justify-between items-end mb-1">
-                      <span className="text-neon-green/90 font-bold">{skill.name}</span>
-                      <span className={`text-${skill.color} text-xs uppercase tracking-wider opacity-80`}>
-                        {getSkillLabel(skill.level)}
-                      </span>
+                {category.skills.map((skill, skillIdx) => {
+                  const color = getSkillColor(skill.level);
+                  
+                  return (
+                    <div key={skillIdx} className="font-mono text-sm group">
+                      <div className="flex justify-between items-end mb-1">
+                        <span className="text-neon-green/90 font-bold">{skill.name}</span>
+                        <span className={`text-${color} text-xs uppercase tracking-wider opacity-80`}>
+                          {getSkillLabel(skill.level)}
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        {renderBar(skill.level, color)}
+                        <span className={`text-${color} text-xs w-8 text-right`}>
+                           {skill.level}%
+                        </span>
+                      </div>
                     </div>
-                    
-                    <div className="flex items-center gap-2">
-                      {renderBar(skill.level, skill.color)}
-                      <span className={`text-${skill.color} text-xs w-8 text-right`}>
-                         {skill.level}%
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="font-mono text-sm space-y-2">

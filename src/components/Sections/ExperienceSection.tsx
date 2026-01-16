@@ -8,7 +8,9 @@ const ExperienceSection: React.FC = () => {
     return entries.map(entry => {
       const lines = entry.split('\n');
       const headerMatch = lines[0].match(/\[(.*?)\]\s*\[(.*?)\]\s*(.*)/);
-      const details = lines.slice(1).join('\n');
+      const details = lines.slice(1)
+        .map(line => line.trim().replace(/^>\s*/, ''))
+        .filter(Boolean);
       
       if (headerMatch) {
         return {
@@ -49,21 +51,28 @@ const ExperienceSection: React.FC = () => {
               {/* Left Column: Title & Details */}
               <div className="flex-1">
                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-neon-green font-mono group-hover:text-neon-cyan transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-neon-purple font-mono group-hover:text-neon-cyan transition-colors">
                       {exp!.title}
                     </h3>
                     <span className={`text-xs px-2 py-0.5 font-mono border rounded ${
                         exp!.level === 'INFO' ? 'border-neon-cyan/50 text-neon-cyan' :
                         exp!.level === 'INIT' ? 'border-neon-pink/50 text-neon-pink' :
-                        'border-neon-green/50 text-neon-green'
+                        'border-neon-cyan/50 text-neon-cyan'
                       }`}>
                         {exp!.level}
                     </span>
                  </div>
                  
-                 <pre className="text-sm text-neon-green/80 font-mono whitespace-pre-wrap pl-4 border-l-2 border-neon-green/20 group-hover:border-neon-green/50 transition-colors">
-                    {exp!.details}
-                 </pre>
+                 <div className="pl-4 border-l-2 border-neon-green/20 group-hover:border-neon-green/50 transition-colors">
+                   <ul className="space-y-2">
+                     {exp!.details.map((detail: string, i: number) => (
+                       <li key={i} className="flex items-start text-sm text-neon-green/80 font-mono">
+                         <span className="mr-2 text-neon-cyan shrink-0">{'>'}</span>
+                         <span>{detail}</span>
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
               </div>
 
                {/* Right Column: Date & Meta */}

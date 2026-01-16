@@ -39,7 +39,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ currentSection, onSection
           </span>
           <span className="relative z-10">{section.label}</span>
           {currentSection === section.id && (
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-neon-green rounded-full animate-pulse border border-terminal-black z-10"></span>
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-neon-green rounded-full animate-pulse border border-terminal-black z-100"></span>
           )}
         </button>
       ))}

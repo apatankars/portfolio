@@ -8,7 +8,14 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  const { displayedText } = useTypewriter(project.fullDescription, 20);
+  // Format description into bullet points
+  const formattedDescription = project.fullDescription
+    .split('. ')
+    .filter(sentence => sentence.trim().length > 0)
+    .map(sentence => `> ${sentence.trim()}${sentence.endsWith('.') ? '' : '.'}`)
+    .join('\n\n');
+
+  const { displayedText } = useTypewriter(formattedDescription, 10);
 
   return (
     <div 
@@ -39,20 +46,54 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
         {/* Modal Content */}
         <div className="p-6 md:p-8">
-          {/* Project Image Placeholder */}
-          <div className="mb-6 border-2 border-neon-green/30 p-4 bg-terminal-gray/20">
+          {/* Project Images Gallery */}
+          {project.images && project.images.length > 0 ? (
+            <div className="mb-6 space-y-4">
+              {/* Main Image */}
+              <div className="border-2 border-neon-green/30 p-1 bg-terminal-gray/20">
+                 <img 
+                  src={project.images[0]} 
+                  alt={`${project.title} - Main`}
+                  className="w-full h-auto object-cover max-h-[500px]"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                    (e.target as HTMLImageElement).parentElement!.style.display = 'none';
+                  }}
+                />
+              </div>
+              
+              {/* Additional Images Grid */}
+              {project.images.length > 1 && (
+                <div className="grid grid-cols-3 gap-4">
+                  {project.images.slice(1).map((img, index) => (
+                    <div key={index} className="border border-neon-green/20 p-1 bg-terminal-gray/10 hover:border-neon-green/50 transition-colors">
+                      <img 
+                        src={img} 
+                        alt={`${project.title} - ${index + 2}`} 
+                        className="w-full h-32 object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          (e.target as HTMLImageElement).parentElement!.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : (
+            /* Fallback Placeholder if no images */
+             <div className="mb-6 border-2 border-neon-green/30 p-4 bg-terminal-gray/20">
             <div className="aspect-video bg-gradient-to-br from-neon-green/10 to-neon-cyan/10 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl mb-4 animate-pulse">🖼️</div>
                 <p className="text-neon-green/60 font-mono text-sm">
-                  [Project Screenshot Placeholder]
-                </p>
-                <p className="text-neon-green/40 font-mono text-xs mt-2">
-                  Add images to public/projects/{project.id}/
+                  [No Images Available]
                 </p>
               </div>
             </div>
           </div>
+          )}
 
           {/* Project Title */}
           <h2 className="text-3xl md:text-4xl font-bold text-neon-cyan mb-4 font-mono">
@@ -74,7 +115,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Full Description with Typewriter */}
           <div className="mb-6">
             <h3 className="text-neon-green font-mono text-sm mb-2 opacity-80">/// DESCRIPTION</h3>
-            <p className="text-neon-green/90 font-mono text-sm md:text-base leading-relaxed">
+            <p className="text-neon-green/90 font-mono text-sm md:text-base leading-relaxed whitespace-pre-line">
               {displayedText}
               <span className="animate-pulse">_</span>
             </p>

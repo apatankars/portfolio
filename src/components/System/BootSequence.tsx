@@ -4,20 +4,33 @@ interface BootSequenceProps {
   onComplete: () => void;
 }
 
+const getCurrentTime = () => {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    return `${hours}:${minutes}:${seconds}`;
+}
+
+const getCurrentDate = () => {
+      const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+}
+
+
 const BOOT_LOGS = [
-  "BIOS Date 01/11/26 15:01:00 Ver: 1.0.0",
-  "CPU: Neural Quantum Processor (4 Cores)",
+  "BOOT DATE " + getCurrentDate() + " " + getCurrentTime() + " Ver: 1.0.0",
+  "CPU: Armie Quantum Processor (4 Cores)",
   "Memory Test: 64512K OK",
   "Detected Primary Master: ARMAAN_DEV_DRIVE",
   "Booting from hard disk...",
   "Loading kernel modules...",
   "Mounting root filesystem...",
   "[OK] Mounted /dev/sda1 on /",
-  "[OK] Started Network Manager",
-  "[OK] Started Neural Interface Service",
   "Loading portfolio assets...",
-  "Initializing graphics subsystem...",
-  "Checking for updates...",
   "System ready."
 ];
 
@@ -41,7 +54,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
       const timer = setTimeout(() => {
         setCurrentLog(prev => prev + currentText[charIndex]);
         setCharIndex(prev => prev + 1);
-      }, 10); // Fast typing speed
+      }, 5); // Fast typing speed
       return () => clearTimeout(timer);
     } else {
       // Move to next log
