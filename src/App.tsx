@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CRTLayout from './components/UI/CRTLayout';
 import BootSequence from './components/System/BootSequence';
 import MainLayout from './components/Layout/MainLayout';
