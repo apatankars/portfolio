@@ -56,15 +56,15 @@ export const projects: ProjectData[] = [
         github: 'https://github.com/apatankars/TextSwap',
      }
   },
-//   {
-//      id: 'election-model',
-//      title: '2024 Presidential Election Prediction Model',
-//      description: 'ML model predicting election outcomes with 71% F1-score.',
-//      fullDescription: 'Engineered comprehensive data pipeline using Selenium and BeautifulSoup to scrape and parse over 5 million records from 2002-2022, encompassing 100+ variables such as incumbency, campaign finance, and polling data. Implemented a LightGBM classification model with 1000+ decision trees to predict election outcomes, achieving a weighted average F1-score of 71%. Deployed automated pipeline using GitHub Actions and AWS Lambda/S3 powering 24cast.org with 5,000+ total visitors. [NOTE] Website is not longer actively deployed.',
-//      technologies: ['Python', 'LightGBM', 'Selenium', 'AWS Lambda', 'Machine Learning'],
-//      images: ['/assets/projects/election-model/1.png', '/assets/projects/election-model/2.png'],
-//      links: {
-//         github: 'https://github.com/apatankars/Election2024',
-//      }
-//   }
+  {
+     id: 'election-model',
+     title: '2024 Presidential Election Prediction Model',
+     description: 'ML model predicting election outcomes with 71% F1-score.',
+     fullDescription: 'Engineered comprehensive data pipeline using Selenium and BeautifulSoup to scrape and parse over 5 million records from 2002-2022, encompassing 100+ variables such as incumbency, campaign finance, and polling data. Implemented a LightGBM classification model with 1000+ decision trees to predict election outcomes, achieving a weighted average F1-score of 71%. Deployed automated pipeline using GitHub Actions and AWS Lambda/S3 powering 24cast.org with 5,000+ total visitors. [NOTE] Website is not longer actively deployed.',
+     technologies: ['Python', 'LightGBM', 'Selenium', 'AWS Lambda', 'Machine Learning'],
+     images: ['/assets/projects/election-model/1.png', '/assets/projects/election-model/2.png'],
+     links: {
+        github: 'https://github.com/apatankars/Election2024',
+     }
+  }
 ];
