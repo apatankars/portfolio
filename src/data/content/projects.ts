@@ -1,6 +1,17 @@
 import type { ProjectData } from '../../components/FileSystem/ProjectCard';
 
 export const projects: ProjectData[] = [
+   {
+    id: 'latent_loop',
+    title: 'L3M: Looped Latent Language Model',
+    description: 'A novel architecture to allow for adaptive latent-reasoning models.',
+    fullDescription: 'Designed an architecture that allows for language models to reason within their latent space rather than token-sapce. The model can adapatively decide to spend more compute power on specific tokens, looping over its weights to enrich the embeddings. The model is able to adaptively decide when to stop using a halting distribution. The model has is still in-development, but preliminary results show promise in improving reasoning capabilities, specfically spending more compute on harder tokens compared to easier ones.',
+    technologies: ['PyTorch', 'Transformers', 'PonderNet', 'Systems for ML'],
+    images: ['/assets/projects/l3m/1.png'],
+    links: {
+        github: 'https://github.com/apatankars/l3m '
+    }
+  },
   {
     id: 'dinodb',
     title: 'DinoDB: Hybrid Relational & Vector Database',
@@ -12,17 +23,17 @@ export const projects: ProjectData[] = [
         github: 'https://github.com/apatankars/dinodb'
     }
   },
-  {
-     id: 'ata',
-     title: 'ATA: Artificial Teaching Assistant',
-     description: 'LLM-powered grading and feedback system for CS courses.',
-     fullDescription: 'Architected full-stack AI system using LangChain RAG pipeline with Postgres vector database, processing assignments and lecture slides to retrieve relevant materials, serving 3,200+ student sessions. Engineered Docker-based sandboxed execution environment with parallelized autograder integration. Fine-tuned Mistral 3 on 50,000 pedagogy examples with Socratic prompting, resulting in 35% reduction in office hours utilization and achieving 8.4/10 student satisfaction.',
-     technologies: ['Python', 'LangChain', 'RAG', 'Postgres', 'Docker', 'NLP'],
-     images: ['/assets/projects/ata/1.png', '/assets/projects/ata/2.png', '/assets/projects/ata/3.png'],
-     links: {
-        github: 'https://github.com/apatankars/ata'
-     }
-  },
+//   {
+//      id: 'ata',
+//      title: 'ATA: Artificial Teaching Assistant',
+//      description: 'LLM-powered grading and feedback system for CS courses.',
+//      fullDescription: 'Architected full-stack AI system using LangChain RAG pipeline with Postgres vector database, processing assignments and lecture slides to retrieve relevant materials, serving 3,200+ student sessions. Engineered Docker-based sandboxed execution environment with parallelized autograder integration. Fine-tuned Mistral 3 on 50,000 pedagogy examples with Socratic prompting, resulting in 35% reduction in office hours utilization and achieving 8.4/10 student satisfaction.',
+//      technologies: ['Python', 'LangChain', 'RAG', 'Postgres', 'Docker', 'NLP'],
+//      images: ['/assets/projects/ata/1.png', '/assets/projects/ata/2.png', '/assets/projects/ata/3.png'],
+//      links: {
+//         github: 'https://github.com/apatankars/ata'
+//      }
+//   },
   {
      id: 'taxi',
      title: 'Taxi: Distributed Search Engine',
@@ -55,16 +66,16 @@ export const projects: ProjectData[] = [
      links: {
         github: 'https://github.com/apatankars/TextSwap',
      }
-  },
-  {
-     id: 'election-model',
-     title: '2024 Presidential Election Prediction Model',
-     description: 'ML model predicting election outcomes with 71% F1-score.',
-     fullDescription: 'Engineered comprehensive data pipeline using Selenium and BeautifulSoup to scrape and parse over 5 million records from 2002-2022, encompassing 100+ variables such as incumbency, campaign finance, and polling data. Implemented a LightGBM classification model with 1000+ decision trees to predict election outcomes, achieving a weighted average F1-score of 71%. Deployed automated pipeline using GitHub Actions and AWS Lambda/S3 powering 24cast.org with 5,000+ total visitors. [NOTE] Website is not longer actively deployed.',
-     technologies: ['Python', 'LightGBM', 'Selenium', 'AWS Lambda', 'Machine Learning'],
-     images: ['/assets/projects/election-model/1.png', '/assets/projects/election-model/2.png'],
-     links: {
-        github: 'https://github.com/apatankars/Election2024',
-     }
   }
+//   {
+//      id: 'election-model',
+//      title: '2024 Presidential Election Prediction Model',
+//      description: 'ML model predicting election outcomes with 71% F1-score.',
+//      fullDescription: 'Engineered comprehensive data pipeline using Selenium and BeautifulSoup to scrape and parse over 5 million records from 2002-2022, encompassing 100+ variables such as incumbency, campaign finance, and polling data. Implemented a LightGBM classification model with 1000+ decision trees to predict election outcomes, achieving a weighted average F1-score of 71%. Deployed automated pipeline using GitHub Actions and AWS Lambda/S3 powering 24cast.org with 5,000+ total visitors. [NOTE] Website is not longer actively deployed.',
+//      technologies: ['Python', 'LightGBM', 'Selenium', 'AWS Lambda', 'Machine Learning'],
+//      images: ['/assets/projects/election-model/1.png', '/assets/projects/election-model/2.png'],
+//      links: {
+//         github: 'https://github.com/apatankars/Election2024',
+//      }
+//   }
 ];

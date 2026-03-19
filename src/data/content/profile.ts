@@ -5,16 +5,16 @@ export const aboutMe = `
 ## HI, IT'S ME, ARMAAN!
 
 ## WHAT I DO
-I'm a CS junior at Brown who still finds anytime I can make a pixel change color a win. I am currently trying to figure out where to call home as I explore my future, but for now I'm here at Brown solving a the distributed problem of teaching.
+I am a senior studying computer science and international affairs at Brown University. I am actively looking for opportunities and experiences to help grow in my role as a machine learning and software engineer.
 
 ## HOW I GOT HERE
-Spent last summer at STR building multi-agent RL systems that convinced robots to cooperate. Before that, rebuilt the Brown Political Review's website because I thought "how hard could it be?" (Narrator: it was hard, but it shipped). Somewhere along the way, I ended up going to classes that I didn't know existed.
+Spent last summer at STR building multi-agent RL systems that tried convinced robots that teamwork actually works. Before that, I spent a year working the Brown Political Review's website because I thought "how hard could it be?" (Reality: it was hard, but it shipped). Somewhere along the way, I ended up finishing my degree. 
 
 ## WHAT DRIVES ME
-Rabbit holes. Everything is a rabbit hole. I love diving headfirst into a problem and seeing where it takes me. I'm drawn to problems where you need to understand both the math and the systems, because the interesting stuff usually lives at that intersection.
+Rabbit holes. Everything is a rabbit hole. I love diving headfirst into a problem and seeing where it takes me. I'm drawn to the problems that really make me question if they are even solvable :) 
 
 ## OUTSIDE THE CODE
-Likely on a climbing wall hanging on for dear life or trying to mix electronic noises into a rhythm that isn't ear screeching.
+Likely on a climbing wall hanging on for dear life or listenting to ear-screeching electronic hyperpop.
 `;
 
 export interface ContactItem {
@@ -81,8 +81,10 @@ export const skillCategories: SkillCategory[] = [
       { name: 'TensorFlow', level: 95 },
       { name: 'React/Next.js', level: 90 },
       
+      
       { name: 'Ray/RLLib', level: 88 },
       { name: 'Node.js', level: 85 },
+      { name: 'Jax', level: 80 },
       { name: 'CUDA', level: 80 },
       { name: 'NumPy', level: 92 },
       { name: 'pandas', level: 88 },
